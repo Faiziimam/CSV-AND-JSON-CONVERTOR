@@ -3,29 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSV-JSON Converter</title>
+    <title>CSV to JSON & JSON to CSV Converter</title>
+    <meta name="description" content="Easily convert CSV to JSON and JSON to CSV with our free, fast, and easy-to-use online converter.">
+    <meta name="keywords" content="CSV to JSON, JSON to CSV, free converter, convert JSON to CSV, convert CSV online">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>CSV-JSON Converter</h1>
-        <section id="csv-to-json">
+    <!-- Header -->
+    <header class="header-bar">
+        <h1>CSV to JSON & JSON to CSV Converter</h1>
+    </header>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- CSV to JSON Card -->
+        <div class="card">
             <h2>Convert CSV to JSON</h2>
+            <p>Upload your CSV file to quickly convert it to JSON format.</p>
             <form id="csvToJsonForm">
-                <input type="file" id="csvFile" accept=".csv" required>
-                <button type="submit">Convert to JSON</button>
+                <label for="csvFile" class="custom-file-upload">
+                    <input type="file" id="csvFile" accept=".csv" required>
+                    <span>Choose CSV File</span>
+                </label>
+                <button type="submit" class="btn">Convert to JSON</button>
             </form>
-        </section>
-        <section id="json-to-csv">
+        </div>
+
+        <!-- JSON to CSV Card -->
+        <div class="card">
             <h2>Convert JSON to CSV</h2>
+            <p>Upload your JSON file to convert it to CSV format easily.</p>
             <form id="jsonToCsvForm">
-                <input type="file" id="jsonFile" accept=".json" required>
-                <button type="submit">Convert to CSV</button>
+                <label for="jsonFile" class="custom-file-upload">
+                    <input type="file" id="jsonFile" accept=".json" required>
+                    <span>Choose JSON File</span>
+                </label>
+                <button type="submit" class="btn">Convert to CSV</button>
             </form>
-        </section>
-        <div id="errorMessage" style="display: none;"></div>
+        </div>
     </div>
-    
+
+    <!-- Error Message -->
+    <div id="errorMessage" style="display: none;"></div>
+
     <script src="app.js"></script>
 </body>
 </html>
