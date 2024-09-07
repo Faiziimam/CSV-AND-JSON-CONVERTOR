@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV-JSON Converter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>CSV-JSON Converter</h1>
+        <section id="csv-to-json">
+            <h2>Convert CSV to JSON</h2>
+            <form id="csvToJsonForm">
+                <input type="file" id="csvFile" accept=".csv" required>
+                <button type="submit">Convert to JSON</button>
+            </form>
+        </section>
+        <section id="json-to-csv">
+            <h2>Convert JSON to CSV</h2>
+            <form id="jsonToCsvForm">
+                <input type="file" id="jsonFile" accept=".json" required>
+                <button type="submit">Convert to CSV</button>
+            </form>
+        </section>
+        <div id="errorMessage" style="display: none;"></div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
