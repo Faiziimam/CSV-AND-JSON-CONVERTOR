@@ -3,23 +3,20 @@ const multer = require('multer');
 const path = require('path');
 const { csvToJsonHandler, jsonToCsvHandler } = require('../controllers/convertController');
 const { csvFileFilter, jsonFileFilter } = require('../middlewares/fileFilter');
+const router = express.Router();
 
-// Environment Variables
-const MAX_FILE_SIZE = process.env.MAX_FILE_SIZE || 10 * 1024 * 1024; // Default 10MB
-
-// Configure multer storage to save files in /tmp
+const MAX_FILE_SIZE = process.env.MAX_FILE_SIZE || 10 * 1024 * 1024; 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, '/tmp'); // Save files in the /tmp directory
+    //tmp directory 
+    cb(null, '/tmp'); 
   },
   filename: function (req, file, cb) {
-    // Generate a unique filename
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
     cb(null, uniqueSuffix + path.extname(file.originalname));
   }
 });
 
-// Multer upload instances with file filters and limits
 const uploadCsv = multer({
   storage: storage,
   fileFilter: csvFileFilter,

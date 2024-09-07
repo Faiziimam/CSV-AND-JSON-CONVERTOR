@@ -11,20 +11,18 @@ const healthCheck = require('./routes/healthCheckRoutes');
 
 const app = express();
 
-// frontend files
+// frontend 
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Middleware Setup
+// Middleware 
 app.use(helmet()); // Security headers
-app.use(cors()); // Enable CORS
-app.use(express.json()); // Parse JSON bodies
-app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
-app.use(morgan('combined')); // Logging
+app.use(cors()); 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(morgan('combined'));
 
 
-app.use(cors({
-    origin: '*', // Allow all origins, or specify your frontend origin
-}));
+app.use(cors({origin: '*'}));
 
 // Routes
 app.use('/api', convertRoutes);
@@ -38,7 +36,7 @@ app.use((req, res, next) => {
   res.status(404).json({ error: 'Endpoint not found' });
 });
 
-// Start the Server
+// Server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
