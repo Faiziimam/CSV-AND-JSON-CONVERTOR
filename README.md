@@ -1,5 +1,12 @@
 # CSV to JSON & JSON to CSV Converter
 
+## Overview
+
+This project is a simple **CSV to JSON** and **JSON to CSV** converter. It allows users to upload a CSV file and convert it into JSON format, or upload a JSON file and convert it into CSV format. The interface is designed to be user-friendly and responsive, meaning it works well on all devices, including mobile phones, tablets, and desktops.
+
+The backend handles file uploads and conversions using **Node.js** and **Express**, while the frontend provides an easy-to-use web interface. The goal is to make file format conversions between CSV and JSON quick and convenient.
+
+
 ## Table of Contents
 
 - [Overview](#overview)
