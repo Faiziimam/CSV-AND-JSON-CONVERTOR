@@ -11,7 +11,7 @@ const healthCheck = require('./routes/healthCheckRoutes');
 
 const app = express();
 
-// Serve static frontend files
+// frontend files
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Middleware Setup

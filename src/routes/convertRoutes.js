@@ -1,19 +1,16 @@
-// src/routes/convertRoutes.js
 const express = require('express');
 const multer = require('multer');
 const path = require('path');
 const { csvToJsonHandler, jsonToCsvHandler } = require('../controllers/convertController');
 const { csvFileFilter, jsonFileFilter } = require('../middlewares/fileFilter');
 
-const router = express.Router();
-
 // Environment Variables
 const MAX_FILE_SIZE = process.env.MAX_FILE_SIZE || 10 * 1024 * 1024; // Default 10MB
 
-// Configure multer storage
+// Configure multer storage to save files in /tmp
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'uploads/'); // Ensure this directory exists
+    cb(null, '/tmp'); // Save files in the /tmp directory
   },
   filename: function (req, file, cb) {
     // Generate a unique filename
