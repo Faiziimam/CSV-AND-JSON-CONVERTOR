@@ -9,23 +9,31 @@
 <body>
     <div class="container">
         <h1>CSV-JSON Converter</h1>
+
+        <!-- CSV to JSON Section -->
         <section id="csv-to-json">
             <h2>Convert CSV to JSON</h2>
-            <form id="csvToJsonForm">
+            <form id="csvToJsonForm" enctype="multipart/form-data">
                 <input type="file" id="csvFile" accept=".csv" required>
                 <button type="submit">Convert to JSON</button>
             </form>
+            <a id="downloadJsonLink" style="display: none;">Download JSON</a>
         </section>
+
+        <!-- JSON to CSV Section -->
         <section id="json-to-csv">
             <h2>Convert JSON to CSV</h2>
-            <form id="jsonToCsvForm">
+            <form id="jsonToCsvForm" enctype="multipart/form-data">
                 <input type="file" id="jsonFile" accept=".json" required>
                 <button type="submit">Convert to CSV</button>
             </form>
+            <a id="downloadCsvLink" style="display: none;">Download CSV</a>
         </section>
+
+        <!-- Error Message Display -->
         <div id="errorMessage" style="display: none;"></div>
     </div>
-    
+
     <script src="app.js"></script>
 </body>
 </html>

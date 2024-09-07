@@ -1,5 +1,3 @@
-// app.js
-
 document.addEventListener('DOMContentLoaded', function () {
     const csvToJsonForm = document.getElementById('csvToJsonForm');
     const jsonToCsvForm = document.getElementById('jsonToCsvForm');
@@ -32,13 +30,13 @@ document.addEventListener('DOMContentLoaded', function () {
             const jsonBlob = new Blob([JSON.stringify(jsonData, null, 2)], { type: 'application/json' });
             const jsonUrl = URL.createObjectURL(jsonBlob);
             
-            // Create an invisible link to trigger the download
+            // Trigger download
             const downloadLink = document.createElement('a');
             downloadLink.href = jsonUrl;
-            downloadLink.download = 'converted.json';  // Set the default filename
+            downloadLink.download = 'converted.json';
             document.body.appendChild(downloadLink);
-            downloadLink.click();  // Trigger the download
-            document.body.removeChild(downloadLink);  // Clean up
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
             hideErrorMessage();
         } catch (error) {
             showErrorMessage('An error occurred during conversion.');
@@ -71,13 +69,13 @@ document.addEventListener('DOMContentLoaded', function () {
             const csvBlob = await response.blob();
             const csvUrl = URL.createObjectURL(csvBlob);
             
-            // Create an invisible link to trigger the download
+            // Trigger download
             const downloadLink = document.createElement('a');
             downloadLink.href = csvUrl;
-            downloadLink.download = 'converted.csv';  // Set the default filename
+            downloadLink.download = 'converted.csv';
             document.body.appendChild(downloadLink);
-            downloadLink.click();  // Trigger the download
-            document.body.removeChild(downloadLink);  // Clean up
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
             hideErrorMessage();
         } catch (error) {
             showErrorMessage('An error occurred during conversion.');
