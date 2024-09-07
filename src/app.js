@@ -7,6 +7,7 @@ const morgan = require('morgan');
 const path = require('path');
 const convertRoutes = require('./routes/convertRoutes');
 const errorHandler = require('./middlewares/errorHandler');
+const healthCheck = require('./routes/healthCheckRoutes');
 
 const app = express();
 
@@ -27,6 +28,7 @@ app.use(cors({
 
 // Routes
 app.use('/api', convertRoutes);
+app.use('/api',healthCheck)
 
 // Error Handling Middleware
 app.use(errorHandler);
